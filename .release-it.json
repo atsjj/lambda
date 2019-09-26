@@ -4,7 +4,7 @@
     "before:release": "auto-changelog"
   },
   "git": {
-    "changelog": "git log --pretty=format:\"* %s (%h)\" ${latestTag}...HEAD",
+    "changelog": "auto-changelog --stdout --template .auto-changelog-compact.hbs --unreleased",
     "requireCleanWorkingDir": true,
     "requireUpstream": true,
     "requireCommits": false,
