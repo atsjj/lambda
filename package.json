@@ -16,6 +16,7 @@
   "author": "Steve Jabour <steve@jabour.me> (https://github.com/atsjj)",
   "license": "MIT",
   "readme": "README.md",
+  "repository": "git://github.com/atsjj/lambda.git",
   "dependencies": {
     "@ts-type/package-dts": "^1.0.4",
     "@types/handlebars-helpers": "^0.5.2",
