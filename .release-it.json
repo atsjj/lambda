@@ -1,7 +1,12 @@
 {
   "hooks": {
-    "after:bump": "npm run build",
-    "before:release": "auto-changelog"
+    "after:bump": [
+      "auto-changelog",
+      "npm run build"
+    ],
+    "after:release": [
+      "rm -rf dist"
+    ]
   },
   "git": {
     "changelog": "auto-changelog --stdout --template .auto-changelog-compact.hbs",
