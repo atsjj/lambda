@@ -35,12 +35,8 @@ function mimeTypeForResponse(request: Request, defaultType: MimeTypes = MimeType
   const [ contentType, ..._ ] = _contentType.split(';');
 
   if (AvailableMimeTypes.some(v => v === contentType)) {
-    logger.info('mimeTypeForResponse', 'in', contentType, 'out', contentType);
-
     return contentType;
   } else {
-    logger.info('mimeTypeForResponse', 'in', contentType, 'out', defaultType);
-
     return defaultType;
   }
 }
@@ -93,7 +89,6 @@ export abstract class AbstractApplication<IncomingPayload = {}, OutgoingPayload 
   protected instance: Instance;
   protected applicationPackage: ApplicationPackage;
   protected applicationPath: FilePath;
-  protected logger: Logger;
   protected port: number = 7000;
 
   constructor(applicationPackage: ApplicationPackage, applicationPath: FilePath, port?: number) {
