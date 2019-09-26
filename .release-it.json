@@ -1,6 +1,7 @@
 {
   "hooks": {
-    "after:bump": "npm run build"
+    "after:bump": "npm run build",
+    "before:release": "auto-changelog"
   },
   "git": {
     "changelog": "git log --pretty=format:\"* %s (%h)\" ${latestTag}...HEAD",
