@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.0.5](https://github.com/atsjj/lambda/compare/1.0.4...1.0.5) (2019-09-30)
+
+### Commits
+
+* [`b37f980`](https://github.com/atsjj/lambda/commit/b37f980be0794bb9bd4c3c57ffdc83294f3e5566) Removed image mime test
 ## [1.0.4](https://github.com/atsjj/lambda/compare/1.0.3...1.0.4) (2019-09-30)
 
 ### Commits
