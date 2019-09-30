@@ -20,15 +20,21 @@ export enum MimeTypes {
   ApplicationJson = 'application/json',
   ApplicationVndApiJson = 'application/vnd.api+json',
   TextHtml = 'text/html',
+  TextPlain = 'text/plain',
 }
 
 const AvailableMimeTypes = Reflect.ownKeys(MimeTypes)
   .map(k => Reflect.get(MimeTypes, k.toString()) as string);
 
 const jsonapi = Object.freeze({ version: '1.0' });
+
 const { kContentTypeParser } = symbols;
 
 const jsonapiSerializer = JSON.stringify.bind(JSON);
+
+const isMimeAny = /\*\/\*/;
+const isMimeText = /text\/html/;
+const isMimeImage = /image\/(\*|\w+)/;
 
 function mimeTypeForResponse(request: Request, defaultType: MimeTypes = MimeTypes.ApplicationJson): string {
   const { ['content-type']: _contentType } = request.headers;
@@ -131,10 +137,20 @@ export abstract class AbstractApplication<IncomingPayload = {}, OutgoingPayload 
 
   protected async get(request: Request, response: Response): Promise<Response> {
     try {
-      return response
-        .code(200)
-        .type(MimeTypes.TextHtml)
-        .send(await applicationRenderReadme(this.applicationPackage, this.applicationPath));
+      const accept: string = (Reflect.has(request.headers, 'accept') &&
+        Reflect.get(request.headers, 'accept') || '*/*');
+
+      if ((isMimeText.test(accept) || isMimeAny.test(accept)) && !isMimeImage.test(accept)) {
+        return response
+          .code(200)
+          .type(MimeTypes.TextHtml)
+          .send(await applicationRenderReadme(this.applicationPackage, this.applicationPath));
+      } else {
+        return response
+          .code(404)
+          .type(MimeTypes.TextPlain)
+          .send('not found');
+      }
     } catch(error) {
       logger.error(error);
 
