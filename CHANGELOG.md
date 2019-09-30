@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.0.2](https://github.com/atsjj/lambda/compare/1.0.1...1.0.2) (2019-09-30)
+
+### Commits
+
+* [`c8e46fb`](https://github.com/atsjj/lambda/commit/c8e46fb4a148cfc35f36e8b6dc75c3b087077fd6) Default to listening on all interfaces
 ## [1.0.1](https://github.com/atsjj/lambda/compare/1.0.0...1.0.1) (2019-09-26)
 
 ### Commits
