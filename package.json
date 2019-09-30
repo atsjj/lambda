@@ -1,6 +1,6 @@
 {
   "name": "@atsjj/lambda",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Open Function Library",
   "main": "index.js",
   "types": "index.d.ts",

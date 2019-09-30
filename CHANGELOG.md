@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.0.3](https://github.com/atsjj/lambda/compare/1.0.2...1.0.3) (2019-09-30)
+
+### Commits
+
+* [`48791f5`](https://github.com/atsjj/lambda/commit/48791f5eaaba0aede967a1545957e9ca8d4aaf09) Fixed render example path bug
 ## [1.0.2](https://github.com/atsjj/lambda/compare/1.0.1...1.0.2) (2019-09-30)
 
 ### Commits
