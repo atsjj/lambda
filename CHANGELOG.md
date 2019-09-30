@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.4](https://github.com/atsjj/lambda/compare/1.0.3...1.0.4) (2019-09-30)
+
+### Commits
+
+* [`c76d67b`](https://github.com/atsjj/lambda/commit/c76d67bb38b21cf76c1beffe1998413f2827d7c4) Respond with html when asked for html, otherwise 404
+* [`207c7f4`](https://github.com/atsjj/lambda/commit/207c7f4527debf9a4c20eb1beedafc46128e2e73) Override package-name in rendering bug
+* [`58e7546`](https://github.com/atsjj/lambda/commit/58e75464e3533f0ed09ae5b98f1bbf5d2fce05a5) Removed unused import
 ## [1.0.3](https://github.com/atsjj/lambda/compare/1.0.2...1.0.3) (2019-09-30)
 
 ### Commits
