@@ -8,7 +8,6 @@ import * as rehype from 'remark-rehype';
 import * as unified from 'unified';
 import * as usage from 'remark-usage';
 import * as wrap from 'rehype-wrap';
-import { join } from 'path';
 
 const css = 'https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/3.0.1/github-markdown.css';
 const wrapper = 'div.markdown-body';
