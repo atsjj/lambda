@@ -16,7 +16,7 @@ export async function applicationRenderReadme(applicationPackage: ApplicationPac
   const { name: title, readme: path } = applicationPackage;
   const file = await read({ cwd: applicationPath, path });
   const data = await unified()
-    .use(usage, { main: applicationPath })
+    .use(usage, { main: applicationPath, name: title })
     .use(markdown)
     .use(rehype)
     .use(document, { title, css })
