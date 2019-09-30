@@ -34,7 +34,6 @@ const jsonapiSerializer = JSON.stringify.bind(JSON);
 
 const isMimeAny = /\*\/\*/;
 const isMimeText = /text\/html/;
-const isMimeImage = /image\/(\*|\w+)/;
 
 function mimeTypeForResponse(request: Request, defaultType: MimeTypes = MimeTypes.ApplicationJson): string {
   const { ['content-type']: _contentType } = request.headers;
@@ -140,7 +139,7 @@ export abstract class AbstractApplication<IncomingPayload = {}, OutgoingPayload 
       const accept: string = (Reflect.has(request.headers, 'accept') &&
         Reflect.get(request.headers, 'accept') || '*/*');
 
-      if ((isMimeText.test(accept) || isMimeAny.test(accept)) && !isMimeImage.test(accept)) {
+      if (isMimeText.test(accept) || isMimeAny.test(accept)) {
         return response
           .code(200)
           .type(MimeTypes.TextHtml)
