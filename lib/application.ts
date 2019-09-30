@@ -121,7 +121,7 @@ export abstract class AbstractApplication<IncomingPayload = {}, OutgoingPayload 
 
   async start(): Promise<string> {
     try {
-      return await this.instance.listen(this.port);
+      return await this.instance.listen(this.port, '0.0.0.0');
     } catch (error) {
       logger.error(error);
 
