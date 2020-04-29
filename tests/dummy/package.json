@@ -1,0 +1,8 @@
+{
+  "name": "fake-package",
+  "version": "1.2.3-alpha.1",
+  "description": "Here's a cool fake package!",
+  "author": "Steve Jabour <steve@email.me> (https://github.com/atsjj)",
+  "readme": "README.md",
+  "private": true
+}

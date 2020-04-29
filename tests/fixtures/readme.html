@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>fake-package</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/3.0.1/github-markdown.css">
+</head>
+<body><div class="markdown-body">
+<h1>Fake-package</h1>
+<p>Fake-package 1.2.3-alpha.1</p>
+<p>Here&#x27;s a cool fake package!</p>
+<h2>Usage</h2>
+<pre><code class="language-javascript">(async () => {
+  const request = {
+    "data": [{
+      "id": "11a905b1-785d-4917-a48b-79c4d6bfe24d",
+      "type": "functions",
+      "attributes": {
+        "some-attribute": "here's a neat value!",
+      }
+    }],
+    "meta": {
+      "connection-parameters": {
+        "url": "scheme://username:password@host:123/path/to/content.ext"
+      }
+    }
+  };
+
+  const body = JSON.stringify(request);
+
+  const method = 'POST';
+
+  await fetch('http://localhost:7000', { body, method });
+});
+</code></pre>
+</div></body>
+</html>

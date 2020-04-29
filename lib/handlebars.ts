@@ -1,5 +1,5 @@
-import * as handlebars from 'handlebars';
-import * as helpers from 'handlebars-helpers';
+import handlebars from 'handlebars';
+import helpers from 'handlebars-helpers';
 
 helpers({ handlebars });
 

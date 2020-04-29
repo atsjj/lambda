@@ -10,6 +10,8 @@
 tests
 src
 lib
+tmp
+types
 
 tsconfig.json
 tsconfig.lint.json

@@ -2,7 +2,13 @@
   "name": "@atsjj/lambda",
   "version": "1.0.5",
   "description": "Open Function Library",
+  "author": "Steve Jabour <steve@jabour.me> (https://github.com/atsjj)",
+  "bugs": "https://github.com/atsjj/lambda/issues",
+  "homepage": "https://github.com/atsjj/lambda",
+  "license": "MIT",
   "main": "index.js",
+  "readme": "README.md",
+  "repository": "github:atsjj/lambda",
   "types": "index.d.ts",
   "publishConfig": {
     "access": "public"
@@ -10,36 +16,98 @@
   "scripts": {
     "prebuild": "rm -rf dist",
     "build": "tsc",
-    "postbuild": "cp -R LICENSE package.json package-lock.json README.md dist",
-    "release": "release-it"
+    "postbuild": "npm-run-all postbuild:*",
+    "postbuild:main": "cp -R LICENSE package.json package-lock.json README.md dist",
+    "postbuild:test": "rm -rf dist/tests",
+    "release": "release-it",
+    "test": "npm-run-all test:ts test:prebuild test:build test:copy:* test:js",
+    "test:ts": "ava tests/**/*.ts",
+    "test:prebuild": "rm -rf tmp",
+    "test:build": "tsc --outDir tmp",
+    "test:copy:base": "cp -R LICENSE package.json package-lock.json README.md node_modules tmp",
+    "test:copy:test": "cp -R tests/dummy tests/fixtures tmp/tests",
+    "test:js": "cd tmp && ava tests/**/*.js"
   },
-  "author": "Steve Jabour <steve@jabour.me> (https://github.com/atsjj)",
-  "license": "MIT",
-  "readme": "README.md",
-  "repository": "git://github.com/atsjj/lambda.git",
   "dependencies": {
-    "@ts-type/package-dts": "^1.0.4",
-    "@types/handlebars-helpers": "^0.5.2",
-    "@types/pino": "^5.8.10",
-    "elastic-apm-node": "^2.17.0",
-    "fastify": "^2.8.0",
+    "fastify": "^2.14.0",
+    "handlebars": "^4.7.6",
     "handlebars-helpers": "^0.10.0",
-    "handlebars": "^4.3.1",
-    "pino-pretty": "^3.2.1",
-    "pino": "^5.13.3",
-    "rehype-document": "^3.0.1",
-    "rehype-stringify": "^6.0.0",
-    "rehype-wrap": "^1.0.4",
-    "remark-parse": "^7.0.1",
-    "remark-rehype": "^5.0.0",
-    "remark-usage": "^7.0.1",
-    "to-vfile": "^6.0.0",
-    "unified": "^8.4.0"
+    "pino": "^6.2.1",
+    "pino-pretty": "^4.0.0",
+    "rehype-document": "^4.0.0",
+    "rehype-stringify": "^7.0.0",
+    "rehype-wrap": "^1.0.8",
+    "remark-parse": "^8.0.2",
+    "remark-rehype": "^6.0.0",
+    "remark-usage": "^8.0.0",
+    "to-vfile": "^6.1.0",
+    "unified": "^9.0.0"
   },
   "devDependencies": {
-    "auto-changelog": "^1.16.1",
+    "@ts-type/package-dts": "^1.0.8",
+    "@types/handlebars-helpers": "^0.5.2",
+    "@types/pino": "^6.0.0",
+    "auto-changelog": "^2.0.0",
+    "ava": "^3.8.1",
+    "hast-util-to-html": "^7.1.0",
+    "mdast-util-to-hast": "^8.2.0",
+    "npm-run-all": "^4.1.5",
     "release-it": "^12.4.1",
-    "ts-node": "^8.4.1",
-    "typescript": "^3.6.3"
+    "ts-node": "^8.9.1",
+    "typescript": "^3.8.3",
+    "vfile": "^4.1.0"
+  },
+  "auto-changelog": {
+    "commitLimit": false,
+    "output": "CHANGELOG.md",
+    "package": "package.json",
+    "releaseSummary": true,
+    "template": ".auto-changelog.hbs"
+  },
+  "ava": {
+    "extensions": [
+      "js",
+      "ts"
+    ],
+    "files": [
+      "tests/**/*-test.{js,ts}"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "timeout": "60s"
+  },
+  "release-it": {
+    "hooks": {
+      "after:bump": [
+        "auto-changelog",
+        "npm run build"
+      ],
+      "after:release": [
+        "rm -rf dist"
+      ]
+    },
+    "git": {
+      "changelog": "auto-changelog --stdout --template .auto-changelog-compact.hbs",
+      "requireCleanWorkingDir": true,
+      "requireUpstream": true,
+      "requireCommits": false,
+      "addUntrackedFiles": false,
+      "commit": true,
+      "commitMessage": "${version}",
+      "commitArgs": "--gpg-sign",
+      "tag": true,
+      "tagName": "${version}",
+      "tagAnnotation": "${version}",
+      "tagArgs": "--sign",
+      "push": true,
+      "pushArgs": "--follow-tags",
+      "pushRepo": "origin"
+    },
+    "npm": {
+      "publish": true,
+      "publishPath": "dist",
+      "access": "public"
+    }
   }
 }

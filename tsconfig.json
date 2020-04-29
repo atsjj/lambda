@@ -1,6 +1,8 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "declaration": true,
+    "esModuleInterop": true,
     "module": "commonjs",
     "moduleResolution": "node",
     "newLine": "LF",
@@ -8,7 +10,12 @@
     "target": "es2018",
     "lib": [
       "es2018"
-    ]
+    ],
+    "paths": {
+      "*": [
+        "types/*"
+      ]
+    }
   },
   "exclude": [
     "dist",
@@ -17,6 +24,7 @@
   ],
   "include": [
     "index.ts",
-    "lib/**/*.ts"
+    "lib/**/*.ts",
+    "tests/**/*.ts"
   ]
 }

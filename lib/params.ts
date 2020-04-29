@@ -1,5 +1,14 @@
 import { URL } from 'url';
 
+interface Element {
+  attribute: string;
+  value: any[];
+}
+
+interface Dictionary {
+  [key: string]: any;
+}
+
 export class Params {
   private params: Map<string, any>;
 
@@ -17,8 +26,7 @@ export class Params {
 
   getArray(key: string): any[] {
     if (this.params.has(key)) {
-      return [].concat([this.params.get(key)])
-        .reduce(((a, v) => a.concat(v)), []);
+      return [this.params.get(key)].reduce(((a, v) => a.concat(v)), []);
     } else {
       return [];
     }
@@ -42,11 +50,11 @@ export class Params {
 
   getDictionary(key: string): any {
     const members = this.params.get(key) || [];
-    const dictionary = {};
+    const dictionary: Dictionary = {};
 
     members
-      .filter(v => v)
-      .forEach(element => {
+      .filter(Boolean)
+      .forEach((element: Element) => {
         dictionary[element.attribute] = element.value[0];
       });
 

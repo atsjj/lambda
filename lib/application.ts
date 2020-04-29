@@ -1,9 +1,9 @@
-import { ApplicationPackage, FilePath, readPackage } from './application-package';
+import { ApplicationPackage, FilePath } from './application-package';
 import { applicationRenderReadme } from './application-render-readme';
+import { kContentTypeParser } from 'fastify/lib/symbols';
 import { logger } from './logger';
-import * as fastify from 'fastify';
-import * as http from 'http';
-import symbols = require('fastify/lib/symbols');
+import fastify from 'fastify';
+import http from 'http';
 
 type ContentTypeParser = fastify.ContentTypeParser<HttpRequest>;
 type Headers = fastify.DefaultHeaders;
@@ -27,9 +27,6 @@ const AvailableMimeTypes = Reflect.ownKeys(MimeTypes)
   .map(k => Reflect.get(MimeTypes, k.toString()) as string);
 
 const jsonapi = Object.freeze({ version: '1.0' });
-
-const { kContentTypeParser } = symbols;
-
 const jsonapiSerializer = JSON.stringify.bind(JSON);
 
 const isMimeAny = /\*\/\*/;
@@ -117,7 +114,7 @@ export abstract class AbstractApplication<IncomingPayload = {}, OutgoingPayload 
   }
 
   async perform(payload: IncomingPayload): Promise<OutgoingPayload> {
-    return;
+    return payload as unknown as OutgoingPayload;
   }
 
   async afterPerform(): Promise<void> {
