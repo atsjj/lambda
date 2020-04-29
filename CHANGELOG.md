@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.0.0-beta.2](https://github.com/atsjj/lambda/compare/2.0.0-beta.1...2.0.0-beta.2) (2020-04-29)
+
+* The `@ts-type/package-dts` package was moved into `devDependencies` by
+mistake, it's now back where it belongs
+* Forgot to mention that `elastic-apm-node` was entirely removed, so
+bring-your-own-metrics-monitoring in 2.x
+
+### Commits
+
+* [`0b32f5c`](https://github.com/atsjj/lambda/commit/0b32f5c7ddb87556b9da108a8434a3ab25da9f7c) Moved `@ts-type/package-dts` Into Package `dependencies`
 ## [2.0.0-beta.1](https://github.com/atsjj/lambda/compare/1.0.5...2.0.0-beta.1) (2020-04-29)
 
 ### Commits
