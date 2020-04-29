@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.0.0-beta.1](https://github.com/atsjj/lambda/compare/1.0.5...2.0.0-beta.1) (2020-04-29)
+
+### Commits
+
+* [`7aaa099`](https://github.com/atsjj/lambda/commit/7aaa099a7b17bf95467cb698009aa7d7770ec038) Updates, Upgrades, Tests and Types
+* [`075472a`](https://github.com/atsjj/lambda/commit/075472ac51e9c60001d5a03e465f2e55af055e2c) Removed deprecated option from package.json
 ## [1.0.5](https://github.com/atsjj/lambda/compare/1.0.4...1.0.5) (2019-09-30)
 
 ### Commits
