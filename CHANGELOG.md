@@ -1,11 +1,13 @@
 # Changelog
 
-## [2.0.0-beta.2](https://github.com/atsjj/lambda/compare/2.0.0-beta.1...2.0.0-beta.2) (2020-04-29)
+## [2.0.0-beta.3](https://github.com/atsjj/lambda/compare/2.0.0-beta.2...2.0.0-beta.3) (2020-04-29)
 
-* The `@ts-type/package-dts` package was moved into `devDependencies` by
-mistake, it's now back where it belongs
-* Forgot to mention that `elastic-apm-node` was entirely removed, so
-bring-your-own-metrics-monitoring in 2.x
+* Lambda logger now imports Fastify's log serializers
+
+### Commits
+
+* [`d54862d`](https://github.com/atsjj/lambda/commit/d54862d2b9a739216b292de7ae006184d973757b) Import Fastify Logging Serializers
+## [2.0.0-beta.2](https://github.com/atsjj/lambda/compare/2.0.0-beta.1...2.0.0-beta.2) (2020-04-29)
 
 ### Commits
 
