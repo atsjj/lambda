@@ -1,8 +1,8 @@
 # Changelog
 
-## [2.0.0-beta.3](https://github.com/atsjj/lambda/compare/2.0.0-beta.2...2.0.0-beta.3) (2020-04-29)
+## [2.0.0](https://github.com/atsjj/lambda/compare/2.0.0-beta.3...2.0.0) (2020-04-29)
 
-* Lambda logger now imports Fastify's log serializers
+## [2.0.0-beta.3](https://github.com/atsjj/lambda/compare/2.0.0-beta.2...2.0.0-beta.3) (2020-04-29)
 
 ### Commits
 

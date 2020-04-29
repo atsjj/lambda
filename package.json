@@ -1,6 +1,6 @@
 {
   "name": "@atsjj/lambda",
-  "version": "2.0.0-beta.3",
+  "version": "2.0.0",
   "description": "Open Function Library",
   "author": "Steve Jabour <steve@jabour.me> (https://github.com/atsjj)",
   "bugs": "https://github.com/atsjj/lambda/issues",
