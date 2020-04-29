@@ -29,6 +29,7 @@
     "test:js": "cd tmp && ava tests/**/*.js"
   },
   "dependencies": {
+    "@ts-type/package-dts": "^1.0.8",
     "fastify": "^2.14.0",
     "handlebars": "^4.7.6",
     "handlebars-helpers": "^0.10.0",
@@ -44,7 +45,6 @@
     "unified": "^9.0.0"
   },
   "devDependencies": {
-    "@ts-type/package-dts": "^1.0.8",
     "@types/handlebars-helpers": "^0.5.2",
     "@types/pino": "^6.0.0",
     "auto-changelog": "^2.0.0",
