@@ -1,5 +1,10 @@
 # Changelog
 
+## [2.0.2](https://github.com/atsjj/lambda/compare/2.0.1...2.0.2) (2020-06-03)
+
+### Commits
+
+* [`8c344e6`](https://github.com/atsjj/lambda/commit/8c344e63f3bebc3050db4d2c90740e1c602df0ad) Export exceptions to make life easier
 ## [2.0.1](https://github.com/atsjj/lambda/compare/2.0.0...2.0.1) (2020-06-03)
 
 ### Commits
