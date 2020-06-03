@@ -1,5 +1,6 @@
 import { ApplicationPackage, FilePath } from './application-package';
 import { applicationRenderReadme } from './application-render-readme';
+import { Exception } from './exceptions';
 import { kContentTypeParser } from 'fastify/lib/symbols';
 import { logger } from './logger';
 import fastify from 'fastify';
@@ -166,7 +167,11 @@ export abstract class AbstractApplication<IncomingPayload = {}, OutgoingPayload 
         .code(201)
         .send(jsonapiSerialize(await this.perform(request.body)));
     } catch (error) {
-      if (error instanceof Error) {
+      if (error instanceof Exception) {
+        return response
+          .code(error.code)
+          .send(jsonapiSerializeError(error, error.code));
+      } else if (error instanceof Error) {
         return response
           .code(400)
           .send(jsonapiSerializeError(error));
