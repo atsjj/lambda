@@ -1,5 +1,10 @@
 # Changelog
 
+## [2.0.1](https://github.com/atsjj/lambda/compare/2.0.0...2.0.1) (2020-06-03)
+
+### Commits
+
+* [`1a4fcc4`](https://github.com/atsjj/lambda/commit/1a4fcc44bfb35ba74830339ed4c459db275c0b21) Added custom exceptions class
 ## [2.0.0](https://github.com/atsjj/lambda/compare/2.0.0-beta.3...2.0.0) (2020-04-29)
 
 ## [2.0.0-beta.3](https://github.com/atsjj/lambda/compare/2.0.0-beta.2...2.0.0-beta.3) (2020-04-29)
