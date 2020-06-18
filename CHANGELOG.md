@@ -1,5 +1,10 @@
 # Changelog
 
+## [2.0.3](https://github.com/atsjj/lambda/compare/2.0.2...2.0.3) (2020-06-18)
+
+### Commits
+
+* [`5c67d12`](https://github.com/atsjj/lambda/commit/5c67d12c54325480ba65b802b5b2a8ee92abd7ad) export Request and Response types
 ## [2.0.2](https://github.com/atsjj/lambda/compare/2.0.1...2.0.2) (2020-06-03)
 
 ### Commits
