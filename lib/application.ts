@@ -14,8 +14,8 @@ type HttpServer = http.Server;
 type Instance = fastify.FastifyInstance<HttpServer, HttpRequest, HttpResponse>;
 type Params = fastify.DefaultParams;
 type Query = fastify.DefaultQuery;
-type Request<T = any> = fastify.FastifyRequest<HttpRequest, Query, Params, Headers, T>;
-type Response = fastify.FastifyReply<HttpResponse>;
+export type Request<T = any> = fastify.FastifyRequest<HttpRequest, Query, Params, Headers, T>;
+export type Response = fastify.FastifyReply<HttpResponse>;
 
 export enum MimeTypes {
   ApplicationJson = 'application/json',
